@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8"/>
+<title>Activity 1B</title>
+<meta name="author" content="QuTe"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./img/erasmus_plus.jpg" data-background-size="30%" data-background-position="bottom 20px center">
+<h2>Activity 1B</h2><h3>Classical Computing: Bits and Gates</h3><h4>QuTe</h4><h4>M1 TU Delft</h4>
+</section>
+
+<section>
+<section id="slide-org2218f47">
+<h2 id="org2218f47">Purpose</h2>
+<p>
+To get acquainted with:
+</p>
+<ul>
+<li>Bits</li>
+<li>Binary numbers and operations</li>
+<li>Simple logic gates</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org3bd3f02">
+<h2 id="org3bd3f02">What is a bit?</h2>
+<ul>
+<li class="fragment appear">The smallest unit of storage.</li>
+<li class="fragment appear">It can store either 0 or 1.</li>
+<li class="fragment appear">Anything with two separate states can act as a bit.</li>
+
+</ul>
+
+</section>
+<section id="slide-orga31f2a1">
+<h3 id="orga31f2a1">Hard drive</h3>
+<div style="font-size: 60%;">
+<ul>
+<li>A bit stored as spots of North and South magnetic poles.</li>
+
+</ul>
+<div style="display: grid; grid-template-columns: 50% auto;">
+<div>
+
+<div id="org62f932b" class="figure">
+<p><img src="img/2023-01-12_11-36-02_screenshot.png" alt="2023-01-12_11-36-02_screenshot.png" width="600px" />
+</p>
+</div>
+</div>
+
+<div>
+<video controls width="600">
+<source src="./video/Harddrive-engineerguy.ogg" type="video/ogg">
+</video>
+
+
+<div id="org792a647" class="figure">
+<p><img src="./img/MagneticMedia.png" alt="MagneticMedia.png" />
+</p>
+</div>
+</div>
+</div>
+
+</section>
+<section id="slide-org69d5aa4">
+<h3 id="org69d5aa4">Solid State Disk</h3>
+<div style="font-size: 60%;">
+<ul>
+<li>A bit stored as a charge or no charge in the floating gate.</li>
+
+</ul>
+
+<div style="display: grid; grid-template-columns: 50% auto;">
+<div>
+
+<div id="orgc258aaf" class="figure">
+<p><img src="img/2023-01-12_12-41-19_14-06-11-ssd-RalfR-N3S_7886-03.jpg" alt="2023-01-12_12-41-19_14-06-11-ssd-RalfR-N3S_7886-03.jpg" width="600px" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Floating gate state</th>
+<th scope="col" class="org-right">Binary value assigned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Charge</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">No charge</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div>
+
+
+<div id="orgd77d751" class="figure">
+<p><img src="./img/ssd.png" alt="ssd.png" width="600px" />
+</p>
+</div>
+
+</div>
+</div>
+
+</section>
+<section id="slide-org13c3b04">
+<h3 id="org13c3b04">One bit is not enough!</h3>
+<ul>
+<li class="fragment appear">With 1 bit we can only store 2 states: 0 or 1</li>
+<li class="fragment appear">With 2 bit we can store 4 states: 00, 01, 10 or 11</li>
+<li class="fragment appear"><b>What about 3 bits?</b></li>
+<li class="fragment appear"><b>What about n bits?</b></li>
+<li class="fragment appear">8 bits are combined into 1 <b>byte</b>. How many different states is a byte able to store?</li>
+
+</ul>
+
+
+</section>
+<section id="slide-org9fbe03d">
+<h3 id="org9fbe03d">A <b>bit</b> of fun</h3>
+<div style="display: grid; grid-template-columns: 30% auto;">
+<div>
+
+<div id="orgd637be8" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun.png" alt="keep-calm-its-just-a-bit-of-fun.png" width="60%" />
+</p>
+</div>
+
+
+<div id="orgcc248ab" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun_upside_down.png" alt="keep-calm-its-just-a-bit-of-fun_upside_down.png" width="60%" />
+</p>
+</div>
+</div>
+
+<div>
+<ul>
+<li>You got 7 min to come up with the funniest two level system you can think of.</li>
+<li>You should be able to show it live in action to each other afterwards.</li>
+<li>Be creative!</li>
+
+</ul>
+
+<ul>
+<li class="fragment appear">Times up! What did you come up with?</li>
+
+</ul>
+</div>
+</div>
+
+</section>
+<section id="slide-orge6104c9">
+<h3 id="orge6104c9">What does this mean?</h3>
+<div style="display: grid; grid-template-columns: auto auto auto auto auto auto ;">
+<div>
+
+<div id="orgafd3e11" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun.png" alt="keep-calm-its-just-a-bit-of-fun.png" />
+</p>
+</div>
+</div>
+
+<div>
+
+<div id="orgdb60861" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun_upside_down.png" alt="keep-calm-its-just-a-bit-of-fun_upside_down.png" />
+</p>
+</div>
+</div>
+
+<div>
+
+<div id="org9a301d9" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun.png" alt="keep-calm-its-just-a-bit-of-fun.png" />
+</p>
+</div>
+</div>
+
+<div>
+
+<div id="org6e92943" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun_upside_down.png" alt="keep-calm-its-just-a-bit-of-fun_upside_down.png" />
+</p>
+</div>
+</div>
+
+<div>
+
+<div id="org097d817" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun.png" alt="keep-calm-its-just-a-bit-of-fun.png" />
+</p>
+</div>
+</div>
+
+<div>
+
+<div id="orge5b43a3" class="figure">
+<p><img src="./img/keep-calm-its-just-a-bit-of-fun_upside_down.png" alt="keep-calm-its-just-a-bit-of-fun_upside_down.png" />
+</p>
+</div>
+</div>
+
+</div>
+
+<p class="fragment (appear)">
+The Answer to the Ultimate Question of Life, the Universe and Everything
+</p>
+
+<div style="font-size: 200%;">
+<p class="fragment (appear)">
+42
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org4b5eba3">
+<h2 id="org4b5eba3">Binary numbers</h2>
+
+<div id="org8a7a8ba" class="figure">
+<p><img src="./img/2023-01-12_19-28-14_digital-background-green-matrix-binary-computer-code_47243-763.jpg" alt="2023-01-12_19-28-14_digital-background-green-matrix-binary-computer-code_47243-763.jpg" width="60%" />
+</p>
+</div>
+
+</section>
+<section id="slide-org2033753">
+<h3 id="org2033753">Makes sense?</h3>
+<blockquote>
+<p>
+There are 10 types of people in the world, those who understand binary and those who don't.
+</p>
+</blockquote>
+
+<ul>
+<li class="fragment appear">Does the quote make sense?</li>
+<li class="fragment appear">What's wrong?</li>
+<li class="fragment appear">Discus with your neighbors.</li>
+
+</ul>
+
+</section>
+<section id="slide-orge958ae3">
+<h3 id="orge958ae3">Makes sense? - For the initiated</h3>
+<blockquote>
+<p>
+There are 10 types of people in the world, those who understand binary, those who don't and those who know ternary as well.
+</p>
+</blockquote>
+
+<ul>
+<li class="fragment appear">Does the quote make sense?</li>
+<li class="fragment appear">What's wrong?</li>
+<li class="fragment appear">Discus with your neighbors.</li>
+
+</ul>
+
+
+</section>
+<section id="slide-org90ab187">
+<h3 id="org90ab187">Decimal vs binary</h3>
+<div style="font-size: 60%;">
+<div style="display: grid; grid-template-columns: 50% auto;">
+<div>
+<p>
+<b>Decimal</b>
+</p>
+
+<p>
+Ten different digits:
+</p>
+
+<p>
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">10<sup>3</sup></td>
+<td class="org-left">10<sup>2</sup></td>
+<td class="org-left">10<sup>1</sup></td>
+<td class="org-left">10<sup>0</sup></td>
+</tr>
+
+<tr>
+<td class="org-left">1000</td>
+<td class="org-left">100</td>
+<td class="org-left">10</td>
+<td class="org-left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<p>
+<b>Binary</b>
+</p>
+
+<p>
+Two different digits:
+</p>
+
+<p>
+0, 1
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">2<sup>9</sup></td>
+<td class="org-left">2<sup>8</sup></td>
+<td class="org-left">2<sup>7</sup></td>
+<td class="org-left">2<sup>6</sup></td>
+<td class="org-left">2<sup>5</sup></td>
+<td class="org-left">2<sup>4</sup></td>
+<td class="org-left">2<sup>3</sup></td>
+<td class="org-left">2<sup>2</sup></td>
+<td class="org-left">2<sup>1</sup></td>
+<td class="org-left">2<sup>0</sup></td>
+</tr>
+
+<tr>
+<td class="org-left">512</td>
+<td class="org-left">256</td>
+<td class="org-left">128</td>
+<td class="org-left">64</td>
+<td class="org-left">32</td>
+<td class="org-left">16</td>
+<td class="org-left">8</td>
+<td class="org-left">4</td>
+<td class="org-left">2</td>
+<td class="org-left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<p class="fragment (appear)">
+Let's try to write some numbers!
+</p>
+
+</section>
+<section id="slide-orge59e041">
+<h3 id="orge59e041">Happy birthday!</h3>
+<p>
+Write down your birthday in binary digits&#x2026; And yes, use the whole year :)
+</p>
+
+<div style="font-size: 50%;">
+
+<p>
+Use a table like before
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">2<sup>10</sup></td>
+<td class="org-left">2<sup>9</sup></td>
+<td class="org-left">2<sup>8</sup></td>
+<td class="org-left">2<sup>7</sup></td>
+<td class="org-left">2<sup>6</sup></td>
+<td class="org-left">2<sup>5</sup></td>
+<td class="org-left">2<sup>4</sup></td>
+<td class="org-left">2<sup>3</sup></td>
+<td class="org-left">2<sup>2</sup></td>
+<td class="org-left">2<sup>1</sup></td>
+<td class="org-left">2<sup>0</sup></td>
+</tr>
+
+<tr>
+<td class="org-left">1024</td>
+<td class="org-left">512</td>
+<td class="org-left">256</td>
+<td class="org-left">128</td>
+<td class="org-left">64</td>
+<td class="org-left">32</td>
+<td class="org-left">16</td>
+<td class="org-left">8</td>
+<td class="org-left">4</td>
+<td class="org-left">2</td>
+<td class="org-left">1</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Or an algoritme
+</p>
+
+<ol>
+<li><p>
+Divide the given decimal number by 2 and note both the quotient and the remainder.
+</p>
+
+<p>
+The remainder is either 0 or 1.
+</p></li>
+<li>Now, devide the obtained quotient by 2 and note both the new quotient and the new remainder. Note the new remainder <b>to the left</b> of the old remainder.</li>
+<li>Repeat the two first steps until you get 0 as the new quotient.</li>
+<li>The remainders is your decimal number written i binary. Remember to have the last remainder as the first digit to the left and the first remainder as last digit to the right.</li>
+
+</ol>
+
+</section>
+<section id="slide-org1865fab">
+<h3 id="org1865fab">Let's count</h3>
+<div style="font-size: 80%;">
+<div style="display: grid; grid-template-columns: auto auto;">
+<div>
+<ul>
+<li>How large a number are you able to count to using a single hand?.. or two?</li>
+
+</ul>
+
+<ul>
+<li class="fragment appear">Let's see how far we can get counting in binary using our fingers. Repreat after me!</li>
+
+</ul>
+</div>
+
+<div>
+
+<div id="org31c1a7d" class="figure">
+<p><img src="./img/counting_fingers_flintstones.gif" alt="counting_fingers_flintstones.gif" />
+</p>
+</div>
+</div>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="fragment (appear)">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">2<sup>9</sup></td>
+<td class="org-left">2<sup>8</sup></td>
+<td class="org-left">2<sup>7</sup></td>
+<td class="org-left">2<sup>6</sup></td>
+<td class="org-left">2<sup>5</sup></td>
+<td class="org-left">2<sup>4</sup></td>
+<td class="org-left">2<sup>3</sup></td>
+<td class="org-left">2<sup>2</sup></td>
+<td class="org-left">2<sup>1</sup></td>
+<td class="org-left">2<sup>0</sup></td>
+</tr>
+
+<tr>
+<td class="org-left">512</td>
+<td class="org-left">256</td>
+<td class="org-left">128</td>
+<td class="org-left">64</td>
+<td class="org-left">32</td>
+<td class="org-left">16</td>
+<td class="org-left">8</td>
+<td class="org-left">4</td>
+<td class="org-left">2</td>
+<td class="org-left">1</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-org90918cc">
+<h3 id="org90918cc">Let's add it up</h3>
+<p>
+Bitwise addition
+</p>
+
+<div style="font-size: 50%;">
+<div style="display: grid; grid-template-columns: auto auto;">
+<div>
+<ul>
+<li>Just like everyday addition except a carry over of 2 instead 10 (decimal ten).</li>
+<li>Decimal: 7 + 3 = 10 (right most digit is 0 and a 1 as carry over)</li>
+<li>Binary: 1 + 1 = 10 (right most digit is 0 and a 1 as carry over)</li>
+<li>More Binary:
+<ul>
+<li>0 + 0 = 0</li>
+<li>0 + 1 = 1</li>
+<li>1 + 0 = 1</li>
+<li>1 + 1 = 10</li>
+<li>10 + 1 = 11</li>
+<li>11 + 101 = 1000</li>
+
+</ul></li>
+<li>In General: Whenever you hit a multiple of 2 you get a carry over.</li>
+
+</ul>
+</div>
+
+<div>
+<ul>
+<li class="fragment appear">Let's do some on the black/white-board. Please come up with some binary numbers.</li>
+<li class="fragment appear">Now it's your turn. <b>Add your birthdays together!</b></li>
+<li class="fragment appear">Verify your answers here: <a href="https://www.calculator.net/binary-calculator.html">https://www.calculator.net/binary-calculator.html</a></li>
+
+</ul>
+</div>
+</div>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org58c0a29">
+<h2 id="org58c0a29">And know for something completely different&#x2026; <b>OR NOT</b></h2>
+
+<div id="orgf7216db" class="figure">
+<p><img src="./img/completely_different.gif" alt="completely_different.gif" width="50%" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgca01b01">
+<h2 id="orgca01b01">Logic gates</h2>
+
+<div id="orgd5d359c" class="figure">
+<p><img src="./img/logic_gates.png" alt="logic_gates.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgbcb0fdb">
+<h3 id="orgbcb0fdb">The NOT gate</h3>
+<div style="font-size: 80%;">
+<div style="display: grid; grid-template-columns: 40% auto;">
+<div>
+
+<div id="orgfecdaaa" class="figure">
+<p><img src="./img/not_gate.png" alt="not_gate.png" />
+</p>
+</div>
+
+<p>
+Truth table
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<ul>
+<li>Takes one input and returns one output.</li>
+<li>It negates the input.</li>
+<li>It's similar to multiply by -1.</li>
+<li>Notation \(\bar{A}\) (NOT A)</li>
+
+</ul>
+</div>
+</div>
+
+</section>
+<section id="slide-org71a2255">
+<h3 id="org71a2255">The AND gate</h3>
+<div style="font-size: 80%;">
+<div style="display: grid; grid-template-columns: 40% auto;">
+<div>
+
+<div id="org4f9480a" class="figure">
+<p><img src="./img/and_gate.png" alt="and_gate.png" width="100%" />
+</p>
+</div>
+
+<p>
+Truth table
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-right">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<ul>
+<li>Takes two (or more) inputs and returns one output.</li>
+<li>All inputs have to be true for the output to be true.</li>
+<li>It's similar to multiply the inputs together.</li>
+<li>Notation \(A.B\) (A AND B)</li>
+
+</ul>
+</div>
+</div>
+
+</section>
+<section id="slide-org6304841">
+<h3 id="org6304841">The OR gate</h3>
+<div style="font-size: 80%;">
+
+<div style="display: grid; grid-template-columns: 40% auto;">
+<div>
+
+<div id="org9de65d9" class="figure">
+<p><img src="./img/or_gate.png" alt="or_gate.png" width="100%" />
+</p>
+</div>
+
+<p>
+Truth table
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-right">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<ul>
+<li>Takes two (or more) inputs and returns one output.</li>
+<li>Returns true if any of or all of the inputs are true. Returns false if all inputs are false</li>
+<li>It's similar to add the inputs together.</li>
+<li>Notation \(A+B\) (A OR B)</li>
+
+</ul>
+</div>
+</div>
+
+</section>
+<section id="slide-org5edf3a3">
+<h3 id="org5edf3a3">Let's try them out</h3>
+<div style="font-size: 60%;">
+<div style="display: grid; grid-template-columns: 50% auto;">
+<div>
+<p>
+Visit: <a href="https://logic.ly/demo/">https://logic.ly/demo/</a> or click the image.
+</p>
+
+
+<div id="org5953d97" class="figure">
+<p><a href="https://logic.ly/demo" width="400px"><img src="img/logicly.png" alt="logicly.png" width="400px" /></a>
+</p>
+</div>
+</div>
+
+<div>
+<ul>
+<li class="fragment appear">Connect Toggle Switches to the inputs and a light bulb to the output for each of the gates.</li>
+<li class="fragment appear">Check the truth tables for each gate by toggling the switches.</li>
+<li class="fragment appear">Now combine an AND gate with a NOT gate into a NAND gate and combine an OR gate with a NOT gate into a NOR gate.</li>
+
+</ul>
+
+</div>
+</div>
+
+</section>
+<section id="slide-orgdaca117">
+<h3 id="orgdaca117">NAND NOR</h3>
+<div style="font-size: 60%;">
+<p>
+Use the simulator at <a href="https://logic.ly/demo/">https://logic.ly/demo/</a> to fill out the truth tables for the new gates.
+</p>
+<div style="display: grid; grid-template-columns: 50% auto;">
+<div>
+<p>
+NAND
+</p>
+
+<p>
+\(\overline{A.B}\)
+</p>
+
+<div id="org786a124" class="figure">
+<p><img src="./img/nand_gate.png" alt="nand_gate.png" width="50%" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-left">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-left">?</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<p>
+NOR
+</p>
+
+<p>
+\(\overline{A+B}\)
+</p>
+
+<div id="orgc442366" class="figure">
+<p><img src="./img/nor_gate.png" alt="nor_gate.png" width="50%" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-left">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-left">?</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-left">?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</section>
+<section id="slide-orge771dec">
+<h3 id="orge771dec">Bonus exercises</h3>
+<ol>
+<li>Try to build an AND gate using only OR and NOT gates.</li>
+<li>Try to build an OR gate using only AND and NOT gates.</li>
+
+</ol>
+
+
+<p class="fragment (appear)">
+It's even possible to build all logic gates using only NAND gates or NOR gates, but that's for another lesson.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: false,
+slideNumber: 'c/t',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+transition: 'slide',
+transitionSpeed: 'default',
+slideNumber:"c/t",progress:true,transition:"slide",navigationMode:"default",history:false,hash:true,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>

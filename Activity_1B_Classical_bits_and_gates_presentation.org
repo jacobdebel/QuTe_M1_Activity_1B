@@ -1,0 +1,412 @@
+#+title: Activity 1B
+#+subtitle: Classical Computing: Bits and Gates
+#+author: QuTe
+#+date: M1 TU Delft
+# Themes: beige|black|blood|league|moon|night|serif|simple|sky|solarized|white
+#+reveal_theme: night
+#+reveal_title_slide: <h2>%t</h2><h3>%s</h3><h4>%a</h4><h4>%d</h4>
+#+reveal_title_slide_background: ./img/erasmus_plus.jpg
+#+reveal_title_slide_background_position: bottom 20px center
+#+reveal_title_slide_background_size: 30%
+# #+reveal_default_slide_background: #1a2e40
+#+reveal_extra_options: slideNumber:"c/t",progress:true,transition:"slide",navigationMode:"default",history:false,hash:true
+# #+reveal_extra_attr: style="color:red"
+#+options: toc:nil num:nil tags:nil timestamp:nil ^:{} reveal_global_footer: t
+
+# #+attr_html: :position buttom
+# [[./img/erasmus_plus.jpg]]
+
+* Purpose
+To get acquainted with:
+- Bits
+- Binary numbers and operations
+- Simple logic gates
+
+* What is a bit?
+#+attr_reveal: :frag (appear)
+- The smallest unit of storage.
+- It can store either 0 or 1.
+- Anything with two separate states can act as a bit.
+  
+** Hard drive
+#+reveal_html: <div style="font-size: 60%;">
+- A bit stored as spots of North and South magnetic poles.
+#+reveal_html: <div style="display: grid; grid-template-columns: 50% auto;">
+#+reveal_html: <div>
+#+attr_html: :width 600px
+[[file:img/2023-01-12_11-36-02_screenshot.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+#+begin_export html
+<video controls width="600">
+<source src="./video/Harddrive-engineerguy.ogg" type="video/ogg">
+</video>
+#+end_export
+
+[[./img/MagneticMedia.png]]
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** Solid State Disk
+#+reveal_html: <div style="font-size: 60%;">
+- A bit stored as a charge or no charge in the floating gate.
+
+#+reveal_html: <div style="display: grid; grid-template-columns: 50% auto;">
+#+reveal_html: <div>
+#+DOWNLOADED: file:///tmp/dnd_file-1/14-06-11-ssd-RalfR-N3S_7886-03.jpg @ 2023-01-12 12:41:19
+#+attr_html: :width 600px
+#+attr_latex: :width 7cm
+[[file:img/2023-01-12_12-41-19_14-06-11-ssd-RalfR-N3S_7886-03.jpg]]
+
+| Floating gate state | Binary value assigned |
+|---------------------+-----------------------|
+| Charge              |                     0 |
+| No charge           |                     1 |
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+
+#+DOWNLOADED: file:///tmp/dnd_file/NAND-Cell-Cut-Away-31e620fa.png @ 2023-01-12 12:37:14
+#+attr_html: :width 600px
+[[./img/ssd.png]]
+
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** One bit is not enough!
+#+attr_reveal: :frag (appear)
+- With 1 bit we can only store 2 states: 0 or 1
+- With 2 bit we can store 4 states: 00, 01, 10 or 11
+- *What about 3 bits?*
+- *What about n bits?*
+- 8 bits are combined into 1 *byte*. How many different states is a byte able to store?
+  
+  
+** A *bit* of fun
+#+reveal_html: <div style="display: grid; grid-template-columns: 30% auto;">
+#+reveal_html: <div>
+#+attr_html: :width 60%
+[[./img/keep-calm-its-just-a-bit-of-fun.png]]
+
+#+attr_html: :width 60%
+[[./img/keep-calm-its-just-a-bit-of-fun_upside_down.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+- You got 7 min to come up with the funniest two level system you can think of.
+- You should be able to show it live in action to each other afterwards.
+- Be creative!
+
+#+attr_reveal: :frag (appear)
+- Times up! What did you come up with?
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** What does this mean?
+#+reveal_html: <div style="display: grid; grid-template-columns: auto auto auto auto auto auto ;">
+#+reveal_html: <div>
+[[./img/keep-calm-its-just-a-bit-of-fun.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+[[./img/keep-calm-its-just-a-bit-of-fun_upside_down.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+[[./img/keep-calm-its-just-a-bit-of-fun.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+[[./img/keep-calm-its-just-a-bit-of-fun_upside_down.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+[[./img/keep-calm-its-just-a-bit-of-fun.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+[[./img/keep-calm-its-just-a-bit-of-fun_upside_down.png]]
+#+reveal_html: </div>
+
+#+reveal_html: </div>
+
+#+attr_reveal: :frag (appear)
+The Answer to the Ultimate Question of Life, the Universe and Everything
+
+#+reveal_html: <div style="font-size: 200%;">
+#+attr_reveal: :frag (appear)
+42
+
+* Binary numbers
+
+#+DOWNLOADED: file:///tmp/dnd_file-1/digital-background-green-matrix-binary-computer-code_47243-763.jpg @ 2023-01-12 19:28:14
+#+attr_html: :width 60% 
+[[./img/2023-01-12_19-28-14_digital-background-green-matrix-binary-computer-code_47243-763.jpg]]
+
+** Makes sense?
+#+begin_quote
+There are 10 types of people in the world, those who understand binary and those who don't.
+#+end_quote
+
+#+attr_reveal: :frag (appear)
+- Does the quote make sense?
+- What's wrong?
+- Discus with your neighbors.
+
+** Makes sense? - For the initiated
+#+begin_quote
+There are 10 types of people in the world, those who understand binary, those who don't and those who know ternary as well.
+#+end_quote
+
+#+attr_reveal: :frag (appear)
+- Does the quote make sense?
+- What's wrong?
+- Discus with your neighbors.
+
+  
+** Decimal vs binary
+#+reveal_html: <div style="font-size: 60%;">
+#+reveal_html: <div style="display: grid; grid-template-columns: 50% auto;">
+#+reveal_html: <div>
+*Decimal*
+
+Ten different digits:
+
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+|        |        |        |        |
+| 10^{3} | 10^{2} | 10^{1} | 10^{0} |
+|   1000 |    100 |     10 |      1 |
+#+reveal_html: </div>
+#+reveal_html: <div>
+*Binary*
+
+Two different digits:
+
+0, 1
+
+|       |       |       |       |       |       |       |       |       |       |
+| 2^{9} | 2^{8} | 2^{7} | 2^{6} | 2^{5} | 2^{4} | 2^{3} | 2^{2} | 2^{1} | 2^{0} |
+|   512 |   256 |   128 |    64 |    32 |    16 |     8 |     4 |     2 |     1 |
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+#+attr_reveal: :frag (appear)
+Let's try to write some numbers!
+
+** Happy birthday!
+Write down your birthday in binary digits... And yes, use the whole year :)
+
+#+reveal_html: <div style="font-size: 50%;">
+
+Use a table like before
+
+|        |       |       |       |       |       |       |       |       |       |       |
+| 2^{10} | 2^{9} | 2^{8} | 2^{7} | 2^{6} | 2^{5} | 2^{4} | 2^{3} | 2^{2} | 2^{1} | 2^{0} |
+|   1024 |   512 |   256 |   128 |    64 |    32 |    16 |     8 |     4 |     2 |     1 |
+
+Or an algoritme
+
+1. Divide the given decimal number by 2 and note both the quotient and the remainder.
+
+   The remainder is either 0 or 1.
+2. Now, devide the obtained quotient by 2 and note both the new quotient and the new remainder. Note the new remainder *to the left* of the old remainder.
+3. Repeat the two first steps until you get 0 as the new quotient.
+4. The remainders is your decimal number written i binary. Remember to have the last remainder as the first digit to the left and the first remainder as last digit to the right.
+
+** Let's count
+#+reveal_html: <div style="font-size: 80%;">
+#+reveal_html: <div style="display: grid; grid-template-columns: auto auto;">
+#+reveal_html: <div>
+- How large a number are you able to count to using a single hand?.. or two?
+
+#+attr_reveal: :frag (appear)
+- Let's see how far we can get counting in binary using our fingers. Repreat after me!
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+[[./img/counting_fingers_flintstones.gif]]
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+#+attr_reveal: :frag (appear)
+|       |       |       |       |       |       |       |       |       |       |
+| 2^{9} | 2^{8} | 2^{7} | 2^{6} | 2^{5} | 2^{4} | 2^{3} | 2^{2} | 2^{1} | 2^{0} |
+|   512 |   256 |   128 |    64 |    32 |    16 |     8 |     4 |     2 |     1 |
+
+** Let's add it up
+Bitwise addition
+
+#+reveal_html: <div style="font-size: 50%;">
+#+reveal_html: <div style="display: grid; grid-template-columns: auto auto;">
+#+reveal_html: <div>
+- Just like everyday addition except a carry over of 2 instead 10 (decimal ten).
+- Decimal: 7 + 3 = 10 (right most digit is 0 and a 1 as carry over)
+- Binary: 1 + 1 = 10 (right most digit is 0 and a 1 as carry over)
+- More Binary:
+  - 0 + 0 = 0
+  - 0 + 1 = 1
+  - 1 + 0 = 1
+  - 1 + 1 = 10
+  - 10 + 1 = 11
+  - 11 + 101 = 1000
+- In General: Whenever you hit a multiple of 2 you get a carry over.
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+#+attr_reveal: :frag (appear)
+- Let's do some on the black/white-board. Please come up with some binary numbers.
+- Now it's your turn. *Add your birthdays together!*
+- Verify your answers here: [[https://www.calculator.net/binary-calculator.html]]
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+
+  
+
+
+* And know for something completely different... *OR NOT*
+#+attr_html: :width 50%
+[[./img/completely_different.gif]]
+
+* Logic gates
+
+[[./img/logic_gates.png]]
+
+** The NOT gate
+#+reveal_html: <div style="font-size: 80%;">
+#+reveal_html: <div style="display: grid; grid-template-columns: 40% auto;">
+#+reveal_html: <div>
+[[./img/not_gate.png]]
+
+Truth table
+
+| A | Output |
+|---+--------|
+| 0 |      1 |
+| 1 |      0 |
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+- Takes one input and returns one output.
+- It negates the input.
+- It's similar to multiply by -1.
+- Notation $\bar{A}$ (NOT A)
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** The AND gate
+#+reveal_html: <div style="font-size: 80%;">
+#+reveal_html: <div style="display: grid; grid-template-columns: 40% auto;">
+#+reveal_html: <div>
+#+attr_html: :width 100%
+[[./img/and_gate.png]]
+
+Truth table
+
+| A | B | Output |
+|---+---+--------|
+| 0 | 0 |      0 |
+| 0 | 1 |      0 |
+| 1 | 0 |      0 |
+| 1 | 1 |      1 |
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+- Takes two (or more) inputs and returns one output.
+- All inputs have to be true for the output to be true.
+- It's similar to multiply the inputs together.
+- Notation $A.B$ (A AND B)
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** The OR gate
+#+reveal_html: <div style="font-size: 80%;">
+
+#+reveal_html: <div style="display: grid; grid-template-columns: 40% auto;">
+#+reveal_html: <div>
+#+attr_html: :width 100%
+[[./img/or_gate.png]]
+
+Truth table
+
+| A | B | Output |
+|---+---+--------|
+| 0 | 0 |      0 |
+| 0 | 1 |      1 |
+| 1 | 0 |      1 |
+| 1 | 1 |      1 |
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+- Takes two (or more) inputs and returns one output.
+- Returns true if any of or all of the inputs are true. Returns false if all inputs are false
+- It's similar to add the inputs together.
+- Notation $A+B$ (A OR B)
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** Let's try them out
+#+reveal_html: <div style="font-size: 60%;">
+#+reveal_html: <div style="display: grid; grid-template-columns: 50% auto;">
+#+reveal_html: <div>
+Visit: [[https://logic.ly/demo/]] or click the image.
+
+#+attr_html: :width 400px
+[[https://logic.ly/demo][file:img/logicly.png]]
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+#+attr_reveal: :frag (appear)
+- Connect Toggle Switches to the inputs and a light bulb to the output for each of the gates.
+- Check the truth tables for each gate by toggling the switches.
+- Now combine an AND gate with a NOT gate into a NAND gate and combine an OR gate with a NOT gate into a NOR gate.
+
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** NAND NOR
+#+reveal_html: <div style="font-size: 60%;">
+Use the simulator at [[https://logic.ly/demo/]] to fill out the truth tables for the new gates.
+#+reveal_html: <div style="display: grid; grid-template-columns: 50% auto;">
+#+reveal_html: <div>
+NAND
+
+$\overline{A.B}$
+#+attr_html: :width 50%
+[[./img/nand_gate.png]]
+
+| A | B | Output |
+|---+---+--------|
+| 0 | 0 | ?      |
+| 0 | 1 | ?      |
+| 1 | 0 | ?      |
+| 1 | 1 | ?      |
+#+reveal_html: </div>
+
+#+reveal_html: <div>
+NOR
+
+$\overline{A+B}$
+#+attr_html: :width 50%
+[[./img/nor_gate.png]]
+
+| A | B | Output |
+|---+---+--------|
+| 0 | 0 | ?      |
+| 0 | 1 | ?      |
+| 1 | 0 | ?      |
+| 1 | 1 | ?      |
+#+reveal_html: </div>
+#+reveal_html: </div>
+
+** Bonus exercises
+1. Try to build an AND gate using only OR and NOT gates.
+2. Try to build an OR gate using only AND and NOT gates.
+
+
+#+attr_reveal: :frag (appear)
+It's even possible to build all logic gates using only NAND gates or NOR gates, but that's for another lesson.
+
+
