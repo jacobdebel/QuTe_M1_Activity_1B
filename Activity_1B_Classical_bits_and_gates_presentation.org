@@ -13,9 +13,6 @@
 # #+reveal_extra_attr: style="color:red"
 #+options: toc:nil num:nil tags:nil timestamp:nil ^:{} reveal_global_footer: t
 
-# #+attr_html: :position buttom
-# [[./img/erasmus_plus.jpg]]
-
 * Purpose
 To get acquainted with:
 - Bits
@@ -206,7 +203,7 @@ Use a table like before
 | 2^{10} | 2^{9} | 2^{8} | 2^{7} | 2^{6} | 2^{5} | 2^{4} | 2^{3} | 2^{2} | 2^{1} | 2^{0} |
 |   1024 |   512 |   256 |   128 |    64 |    32 |    16 |     8 |     4 |     2 |     1 |
 
-Or an algoritme
+Or an algorithm
 
 1. Divide the given decimal number by 2 and note both the quotient and the remainder.
 
